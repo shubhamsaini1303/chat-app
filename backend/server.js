@@ -17,7 +17,7 @@ const server = http.createServer(app);
 // Ensure correct CORS configuration
 const io = new Server(server, {
   cors: {
-    origin:true, // Replace with your frontend origin
+    origin: "https://chat-app-psi-bice.vercel.app", // Replace with your frontend origin
     methods: ["GET", "POST"],
     credentials: true,
   },
