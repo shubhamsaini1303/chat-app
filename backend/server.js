@@ -24,7 +24,7 @@ const io = new Server(server, {
 });
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Frontend origin
+app.use(cors({ origin: "https://chat-app-psi-bice.vercel.app", credentials: true })); // Frontend origin
 app.use(express.json());
 
 // Routes
