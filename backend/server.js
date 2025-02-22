@@ -18,14 +18,23 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://chat-app-psi-bice.vercel.app", // Replace with your frontend origin
-    methods: ["GET", "POST"],
+  methods: "GET, POST, PUT, DELETE", // Allowed methods
     credentials: true,
   },
 });
 
 // Middleware
-app.use(cors({ origin: "https://chat-app-psi-bice.vercel.app", credentials: true })); // Frontend origin
+// app.use(cors({ origin: "https://chat-app-psi-bice.vercel.app", credentials: true })); // Frontend origin
+
+// Enable CORS
+app.use(cors({
+  origin: "https://chat-app-psi-bice.vercel.app", // Allow only your frontend
+  methods: "GET, POST, PUT, DELETE", // Allowed methods
+  credentials: true // Allow cookies if needed
+}));
 app.use(express.json());
+
+
 
 // Routes
 app.use("/api/users", userRouter);
